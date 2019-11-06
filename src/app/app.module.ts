@@ -20,7 +20,7 @@ import { UserService } from './user.service';
     IndexComponent,
     RegisterComponent,
     WorkoutsComponent,
-    ExercisesComponent
+    ExercisesComponent,
   ],
   imports: [
     BrowserModule,
