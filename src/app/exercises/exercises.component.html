@@ -1,0 +1,35 @@
+<h2> Workout NAME</h2>
+
+<a routerLink="/workouts" class="button"> Workouts</a>
+
+<!--if login-->
+<table>
+        <tr>
+            <th> Delete </th>
+            <th> Name </th>
+            <th> Description </th>
+            <th> No. sets </th>
+            <th> Reps/Time </th>
+        </tr>
+    
+        <!-- for each workout -->
+        <tr>
+            <td> 
+                <a> ❌ </a>
+            </td>
+            <td> exercise.name </td>
+            <td> exercise.description</td>
+            <td> exercises.numSets</td>
+            <td> exercise.numReps
+                <a> </a>
+            </td>
+        </tr>
+    </table>
+
+<form action="/user" method="POST">
+    <div>
+        <label for="workout">Enter new workout name: </label>
+        <input type="text" id="workout" name="workout" required="required" />
+        <input type="submit" value="Add Workout" />
+    </div>
+</form>
