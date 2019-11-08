@@ -32,8 +32,8 @@ initializePassport(passport, (username,cb) => {
 })
 
 // database
-mongoose.connect('mongodb+srv://user1:1234@cluster0-g03ww.mongodb.net/assignment1?retryWrites=true&w=majority', {useNewUrlParser: true,useUnifiedTopology: true});
-//mongoose.connect('mongodb://user1:123abc@ds343718.mlab.com:43718/fitnessapp?retryWrites=true&w=majority', {useNewUrlParser: true,useUnifiedTopology: true});
+//mongoose.connect('mongodb+srv://user1:1234@cluster0-g03ww.mongodb.net/assignment1?retryWrites=true&w=majority', {useNewUrlParser: true,useUnifiedTopology: true});
+mongoose.connect('mongodb://user1:123abc@ds343718.mlab.com:43718/fitnessapp?retryWrites=true&w=majority', {useNewUrlParser: true,useUnifiedTopology: true});
 var db = mongoose.connection;
 
 // check connection
