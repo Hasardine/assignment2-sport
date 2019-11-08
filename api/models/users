@@ -1,0 +1,5 @@
+{
+    "_id": <ObjectId>,
+    "name": <string>,
+    "password": <string>
+}

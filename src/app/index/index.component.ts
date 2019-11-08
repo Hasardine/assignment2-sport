@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-index',
@@ -7,7 +6,8 @@ import { AppComponent } from '../app.component';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
-  constructor(private appComp: AppComponent) {}
+
+  constructor() { }
 
   ngOnInit() {
   }

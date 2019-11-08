@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { UserService } from '../user.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { User } from '../modules/user';
+import { UserService } from '../services/user.service';
+
 
 @Component({
   selector: 'app-register',
@@ -9,24 +10,20 @@ import { UserService } from '../user.service';
 })
 export class RegisterComponent implements OnInit {
 
-  angForm: FormGroup;
+  @Input()
+  user: User;
 
-  constructor(private fb: FormBuilder, private ps: UserService) { 
-    this.createForm();
-  }
+  @Input()
+  createHandler: Function;
 
-  createForm() {
-    this.angForm = this.fb.group({
-      UserName: ['', Validators.required ],
-      UserPassword: ['', Validators.required ]
+  constructor(private userService: UserService) {}
+
+  createUser(user: User) {
+    this.userService.createUser(user).then((newUser: User) => {
+      this.createHandler(newUser);
     });
   }
 
-  addUser(UserName, UserPasword) {
-    this.ps.addUser(UserName, UserPasword);
-  }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

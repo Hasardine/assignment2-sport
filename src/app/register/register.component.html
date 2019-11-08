@@ -1,17 +1,15 @@
 <h2> Registration form </h2>
 
-<form action="/register" method="POST">
-    <div>
-        <label for="UserName">Username</label>
-        <input type="text" id="UserName" name="UserName" required="required" />
-    </div>
-    <div>
-        <label for="UserPassword">Password</label>
-        <input type="UserPassword" id="UserPassword" name="UserPassword" required="required" />
-    </div>
-    <div class="form-group">
-        <button (click) = "addUser(UserName.value, UserPassword.value)" 
-        type="submit" class="btn btn-primary"
-        [disabled]="angForm.pristine || angForm.invalid"> Sumbit </button>>
+<div *ngIf="user" >
+    <form action="/register" method="POST">
+        <div class="form-group">
+            <label for="user-name">Username</label>
+            <input class="form-control" name="user-name" [(ngmodel)]="user.name" placeholer="Name" />
         </div>
-</form>
+        <div class="form-group">
+            <label for="user-password">Password</label>
+            <input class="form-control" name="user-password" [(ngmodel)]="user.pasword" placeholer="Password" />
+        </div>
+        <button class="btn btn-primary" *ngIf="!user._id" (click) = "createUser(user)"> Sumbit </button>>
+    </form>
+</div>

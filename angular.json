@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "assignment2": {
+    "fitnessApp": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/assignment2",
+            "outputPath": "dist/fitnessApp",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -63,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "assignment2:build"
+            "browserTarget": "fitnessApp:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "assignment2:build:production"
+              "browserTarget": "fitnessApp:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "assignment2:build"
+            "browserTarget": "fitnessApp:build"
           }
         },
         "test": {
@@ -111,15 +111,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "assignment2:serve"
+            "devServerTarget": "fitnessApp:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "assignment2:serve:production"
+              "devServerTarget": "fitnessApp:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "assignment2"
+  "defaultProject": "fitnessApp"
 }
