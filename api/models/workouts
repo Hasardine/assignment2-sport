@@ -1,7 +1,0 @@
-{
-    "_id": <ObjectId>,
-    "name": <string>,
-    "description": <string>,
-    "numSets": <string>,
-    "numReps": <string>
-}
