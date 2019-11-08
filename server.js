@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
 
-/*// Create a database variable outside of the database connection callback to reuse the connection pool in your app.
+// Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;
 
 // Connect to the database before starting the application server.
@@ -33,11 +33,11 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://localhost:2701
     var port = server.address().port;
     console.log("App now running on port", port);
   });
-}); */
+});
 
-// Connecting DB like in assignment1
+/*// Connecting DB like in assignment1
 mongoose.connect('mongodb+srv://user1:1234@cluster0-g03ww.mongodb.net/assignment1?retryWrites=true&w=majority', {useNewUrlParser: true,useUnifiedTopology: true});
-var db = mongoose.connection;
+var db = mongoose.connection;*/
 
 // Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
