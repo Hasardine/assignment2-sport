@@ -1,0 +1,30 @@
+<!-- <form action="/register" method="POST">
+    <div>
+        <label for="UserName">Username</label>
+        <input type="text" id="UserName" name="UserName" required="required" />
+    </div>
+    <div>
+        <label for="UserPassword">Password</label>
+        <input type="UserPassword" id="UserPassword" name="UserPassword" required="required" />
+    </div>
+    <div class="form-group">
+        <button (click) = "addUser(UserName.value, UserPassword.value)" 
+        type="submit" class="btn btn-primary" [routerLink]="['/login']"> Sumbit </button>>
+        </div>
+</form> -->
+
+<form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
+      <label for="name">Username</label>
+      <input type="text" class="form-control" name="name" [(ngModel)]="model.name" #name="ngModel" required />
+      <div *ngIf="f.submitted && !name.valid" class="help-block">First Name is required</div>
+    </div>
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
+      <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+    </div>
+    <div class="form-group">
+      <button [disabled]="loading" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
