@@ -1,27 +1,9 @@
 var express = require('express');
 var router = express.Router();
-const UserModel = require('../models/user');
-const crypto = require('crypto');
+var ctrlRegister = require('../controllers/register');
 
-router.get('/', (req,res) => {
-    if (req.user) {
-      res.redirect('/');
-    }
-    res.render('register');
-})
+router.get('/', ctrlRegister.loadRegister);
 
-router.post('/', (req,res) => {
-    var newUser = new UserModel({
-        username: req.body.username
-      })
-      newUser.salt= crypto.randomBytes(10).toString('hex'),
-      newUser.hash= crypto.pbkdf2Sync(req.body.password, newUser.salt,30000,32,'sha512').toString('hex')
-      newUser.save((err,user) => {
-        if (err) { console.log(err);} else {
-          console.log(`New user of name ${newUser.username} has been added to the DB`);
-        }
-      })
-      res.redirect('/login');
-})
+router.post('/', ctrlRegister.register);
 
 module.exports = router;

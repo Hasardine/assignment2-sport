@@ -1,21 +1,19 @@
-var express = require('express');
-var router = express.Router();
 const passport = require('passport');
 
-router.get('/', (req, res) => {
+module.exports.loadLogin = function  (req, res) {
   if (req.user) {
     res.redirect('/');
   }
   res.render('login');
-})
+};
 
-router.get('/logout', (req, res) => {
+module.exports.logout =  function (req, res) {
   req.logOut();
   res.redirect('/');
-})
+};
 
 // refactored from https://blog.usejournal.com/sessionless-authentication-withe-jwts-with-node-express-passport-js-69b059e4b22c
-router.post('/', (req, res) => passport.authenticate('local',{
+module.exports.login = function (req, res) { passport.authenticate('local',{
     successRedirect: '/',
     failureRedirect: '/login',
     session: false
@@ -43,6 +41,4 @@ router.post('/', (req, res) => passport.authenticate('local',{
     res.cookie('jwt', jwt, { httpOnly: true, secure: true });
     res.status(200).send({ username });
   });
-}))
-
-module.exports = router;
+})};
