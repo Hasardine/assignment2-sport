@@ -3,6 +3,8 @@ import { Workout } from '../modules/workout';
 import { Http, Response } from '@angular/http';
 import { UserService } from './user.service';
 
+import 'rxjs/add/operator/map';
+
 @Injectable()
 export class WorkoutService {
   

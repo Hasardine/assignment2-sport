@@ -1,33 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 
-import{ AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ExercisesComponent } from './exercises/exercises.component';
 import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { WorkoutsComponent } from './workouts/workouts.component';
-import { WorkoutDetailsComponent } from './workouts/workout-details/workout-details.component';
-import { ExercisesComponent } from './exercises/exercises.component';
 import { ExercisesDetailsComponent } from './exercises/exercises-details/exercises-details.component';
+import { WorkoutDetailsComponent } from './workouts/workout-details/workout-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ExercisesComponent,
     IndexComponent,
     LoginComponent,
     RegisterComponent,
     WorkoutsComponent,
-    WorkoutDetailsComponent,
-    ExercisesComponent,
-    ExercisesDetailsComponent
+    ExercisesDetailsComponent,
+    WorkoutDetailsComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule,
     AppRoutingModule
   ],
   providers: [],
