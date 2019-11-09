@@ -1,22 +1,11 @@
 var express = require('express');
 var router = express.Router();
-const passport = require('passport');
+var ctrlLogin = require('../controllers/login');
 
-router.get('/', (req, res) => {
-  if (req.user) {
-    res.redirect('/');
-  }
-  res.render('login');
-})
+router.get('/', ctrlLogin.loadLogin);
 
-router.get('/logout', (req, res) => {
-  req.logOut();
-  res.redirect('/');
-})
+router.get('/logout', ctrlLogin.logout);
 
-router.post('/', passport.authenticate('local',{
-    successRedirect: '/',
-    failureRedirect: '/login'
-}))
+router.post('/', ctrlLogin.login);
 
 module.exports = router;

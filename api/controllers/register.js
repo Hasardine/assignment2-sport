@@ -1,16 +1,14 @@
-var express = require('express');
-var router = express.Router();
 const UserModel = require('../models/user');
 const crypto = require('crypto');
 
-router.get('/', (req,res) => {
+module.exports.loadRegister = function (req,res) {
     if (req.user) {
       res.redirect('/');
     }
     res.render('register');
-})
+}
 
-router.post('/', (req,res) => {
+module.exports.register = function (req,res) {
     var newUser = new UserModel({
         username: req.body.username
       })
@@ -22,6 +20,4 @@ router.post('/', (req,res) => {
         }
       })
       res.redirect('/login');
-})
-
-module.exports = router;
+}

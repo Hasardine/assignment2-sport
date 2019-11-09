@@ -34,17 +34,6 @@ function initialize(passport, getUserByUsername, getUserById) {
         return done(null, jwtPayload);
       }
     ));
-
-    // passport.serializeUser((user, done) => {
-    //     done(null,user._id);
-    // });
-
-    // passport.deserializeUser((id, done) => {
-    //     UserModel.findOne({_id: id},(err, user) => {
-    //         if (err) { console.log(err); }
-    //         done(null,user);
-    //     })
-    // });
 }
 
 module.exports = initialize;
