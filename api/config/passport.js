@@ -20,18 +20,31 @@ function initialize(passport, getUserByUsername, getUserById) {
         
 
     }
-    passport.use(new LocalStrategy({usernameField: 'username'},authenticateUser))
+    passport.use(new LocalStrategy({usernameField: 'username'},authenticateUser));
 
-    passport.serializeUser((user, done) => {
-        done(null,user._id);
-    });
+    // code from https://blog.usejournal.com/sessionless-authentication-withe-jwts-with-node-express-passport-js-69b059e4b22c
+    passport.use(new JWTStrategy({
+        jwtFromRequest: req => req.cookies.jwt,
+        secretOrKey: secret,
+      },
+      (jwtPayload, done) => {
+        if (Date.now() > jwtPayload.expires) {
+          return done('jwt expired');
+        }
+        return done(null, jwtPayload);
+      }
+    ));
 
-    passport.deserializeUser((id, done) => {
-        UserModel.findOne({_id: id},(err, user) => {
-            if (err) { console.log(err); }
-            done(null,user);
-        })
-    });
+    // passport.serializeUser((user, done) => {
+    //     done(null,user._id);
+    // });
+
+    // passport.deserializeUser((id, done) => {
+    //     UserModel.findOne({_id: id},(err, user) => {
+    //         if (err) { console.log(err); }
+    //         done(null,user);
+    //     })
+    // });
 }
 
 module.exports = initialize;
